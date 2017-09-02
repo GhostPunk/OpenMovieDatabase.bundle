@@ -198,7 +198,7 @@ class OmdbApi(Agent.Movies):
         metadata.rating = None
 
       # Summary rating
-      if Prefs['add_rating_imdb']:
+      if Prefs['add_rating_imdb'] or Prefs['add_rating_rt']:
 
         rating_imdb = None
         rating_rt = None
@@ -214,8 +214,10 @@ class OmdbApi(Agent.Movies):
         else:
           summary = []
 
-        summary.append('Rotten Tomatoes: %s%%' % (rating_rt))
-        summary.append('IMDb sajat: %s' % (rating_imdb))
+        if Prefs['add_rating_rt']:
+          summary.append('Rotten Tomatoes sajat: %s%%' % (rating_rt))
+        if Prefs['add_rating_imdb']:
+          summary.append('IMDb sajat: %s' % (rating_imdb))
 
 
         if len(summary) > 0:
