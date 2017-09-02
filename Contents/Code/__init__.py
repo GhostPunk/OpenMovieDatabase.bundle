@@ -198,7 +198,7 @@ class OmdbApi(Agent.Movies):
         metadata.rating = None
 
       # Summary rating
-      if Prefs['add_rating_imdb']
+      if Prefs['add_rating_imdb']:
 
         rating_imdb = None
         rating_rt = None
