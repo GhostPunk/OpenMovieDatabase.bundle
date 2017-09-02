@@ -194,18 +194,28 @@ class OmdbApi(Agent.Movies):
         else:
           summary = []
 
-        if Prefs['add_rating_rt'] and rating_rt:
-          summary.append('Rotten Tomatoes: %s%%' % (rating_rt))
+      else:
+        metadata.rating = None
 
-        if Prefs['add_rating_imdb'] and rating_imdb:
-          summary.append('IMDb teszt: %s' % (rating_imdb))
+      # Summary rating
+      if Prefs['add_rating_imdb']
+
+        rating_imdb = None
+        rating_rt = None
+
+        if 'imdb' in movie['ratings']:
+          rating_imdb = float(movie['ratings']['imdb'])
+
+        if 'rt' in movie['ratings']:
+          rating_rt = movie['ratings']['rt']
+
+        summary.append('Rotten Tomatoes: %s%%' % (rating_rt))
+        summary.append('IMDb sajat: %s' % (rating_imdb))
 
         if len(summary) > 0:
           summary.reverse()
           metadata.summary = '  ★  '.join(summary)
 
-      else:
-        metadata.rating = None
 
     else:
       Log('*** Failed when processing data from url: %s ***' % (url))
