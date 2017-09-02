@@ -203,11 +203,11 @@ class OmdbApi(Agent.Movies):
         rating_imdb = None
         rating_rt = None
 
-        if 'imdb' in movie['ratings']:
-          rating_imdb = float(movie['ratings']['imdb'])
+        # if 'imdb' in movie['ratings']:
+        rating_imdb = float(movie['ratings']['imdb'])
 
-        if 'rt' in movie['ratings']:
-          rating_rt = movie['ratings']['rt']
+        # if 'rt' in movie['ratings']:
+        rating_rt = movie['ratings']['rt']
 
         summary.append('Rotten Tomatoes: %s%%' % (rating_rt))
         summary.append('IMDb sajat: %s' % (rating_imdb))
